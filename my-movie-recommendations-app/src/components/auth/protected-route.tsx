@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useEffect } from "react"
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/auth-context"
 
 interface ProtectedRouteProps {
@@ -13,13 +13,14 @@ interface ProtectedRouteProps {
 
 export function ProtectedRoute({ children, fallback }: ProtectedRouteProps) {
   const { isAuthenticated, isLoading } = useAuth()
-  const router = useRouter()
+  
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      router.push("/login")
+      navigate("/login")
     }
-  }, [isAuthenticated, isLoading, router])
+  }, [isAuthenticated, isLoading, navigate])
 
   if (isLoading) {
     return (

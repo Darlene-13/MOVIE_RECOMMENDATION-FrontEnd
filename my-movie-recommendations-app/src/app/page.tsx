@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Play, Star, TrendingUp, Users, Bell, BarChart3 } from "lucide-react"
-import Link from "next/link"
+import {Link} from 'react-router-dom'
 
 const featuredMovies = [
   {
@@ -118,13 +118,13 @@ export default function LandingPage() {
           </Card>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/register">
+            <Link to="/register">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg">
                 <Play className="mr-2 h-5 w-5" />
                 Get Started
               </Button>
             </Link>
-            <Link href="/login">
+            <Link to="/login">
               <Button
                 size="lg"
                 variant="outline"
@@ -183,7 +183,7 @@ export default function LandingPage() {
           <p className="text-xl mb-8 opacity-90">
             Join thousands of movie lovers who trust CineAI for their entertainment needs
           </p>
-          <Link href="/register">
+          <Link to="/register">
             <Button size="lg" variant="secondary" className="px-8 py-3 text-lg">
               Start Your Journey
             </Button>

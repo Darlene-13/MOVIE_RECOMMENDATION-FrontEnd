@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { useNotifications } from "@/contexts/notification-context"
+import type { NotificationPreferences } from "@/lib/notifications"
 import { Bell, Mail, Smartphone, Film, Star, Trophy, Users, Info } from "lucide-react"
 
 export function NotificationSettings() {
@@ -32,7 +33,7 @@ export function NotificationSettings() {
     }
   }
 
-  const handleToggle = (key: keyof typeof localPreferences) => {
+  const handleToggle = (key: keyof NotificationPreferences) => {
     if (!localPreferences) return
     setLocalPreferences({
       ...localPreferences,
